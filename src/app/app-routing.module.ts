@@ -34,8 +34,6 @@ const routes: Routes = [
   {path:'prepaiduser',component:PrepaidUserComponent},
   {path:'postpaiduser',component:PostpaidUserComponent},
   {path:'dongleuser',component:DongleUserComponent},
-  {path:'', redirectTo:'/login',pathMatch:'full'},
-  { path: '**', component: PageNotFoundComponent },
   {path: 'adminlogin',component: AdminLoginComponent},
   {path: 'admindashboard',component: AdminNavigationComponent},
   {
@@ -62,16 +60,9 @@ const routes: Routes = [
     path: 'admincrm',
     component: AdminCRMComponent
   },
-  {
-    path: 'adminlogout',
-    redirectTo: '/adminlogin', pathMatch: 'full'
-    
-  },
-  
-  {
-    path: '',
-    redirectTo: '/adminlogin', pathMatch: 'full'
-  }
+  {path: 'adminlogout',redirectTo: '/adminlogin', pathMatch: 'full'},
+  {path:'', redirectTo:'/login',pathMatch:'full'},
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
