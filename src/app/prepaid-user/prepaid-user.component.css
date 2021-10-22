@@ -1,0 +1,14 @@
+.mat-accordion{
+    display: grid;
+    margin: auto;
+    width: 50%;
+    margin-top: 2rem;
+    border-radius: 20px;
+}
+mat-expansion-panel,
+mat-expansion-panel-header {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
