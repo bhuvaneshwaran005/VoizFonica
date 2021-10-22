@@ -1,0 +1,63 @@
+mat-card {
+  max-width: 600px;
+  margin:  2em auto;
+  text-align: center;
+  max-height: 600px;
+  background-color: ghostwhite;
+  margin-top: 130px;
+  
+}
+
+.header{
+  text-align: center;
+
+}
+.full-width {
+  width: 80%;
+}
+
+.button-row {
+  padding-top: 5px;
+}
+
+.button-row a {
+  margin-right: 8px;
+  text-align: center;
+}
+
+.forget-password{
+  padding-left: 0px;
+}
+
+.emailInput{
+  padding-top: 10px;
+}
+
+.contentBody {
+  padding: 60px 1rem;
+  background :#1b6ca8;
+  display: block;
+}
+
+.aLink{
+  float: right;
+  padding-right: 60px;
+  text-decoration: none;
+}
+
+.top{
+text-align: center;
+margin: 2em auto;
+color: rgb(47, 248, 47);
+font-family: 'Times New Roman', Times, serif;
+font-size: 40px;
+
+}
+.bg{
+background: url('pic1.jpg' )  no-repeat;
+height: 100vh;
+background-size: auto;
+overflow: hidden; 
+
+  
+}

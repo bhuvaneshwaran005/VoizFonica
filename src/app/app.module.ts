@@ -1,9 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminProductComponent } from './admin-product/admin-product.component';
+import { AdminPrepaidComponent } from './admin-prepaid/admin-prepaid.component';
+import { AdminPostpaidComponent } from './admin-postpaid/admin-postpaid.component';
+import { AdminDongleComponent } from './admin-dongle/admin-dongle.component';
+import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
+import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { AdminCustomersComponent } from './admin-customers/admin-customers.component';
+import { AdminCRMComponent } from './admin-crm/admin-crm.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
@@ -37,9 +46,20 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    AdminProductComponent,
+    AdminPrepaidComponent,
+    AdminPostpaidComponent,
+    AdminDongleComponent,
+    AdminLogoutComponent,
+    AdminNavigationComponent,
+    AdminCustomersComponent,
+    AdminCRMComponent,
     RegisterComponent,
     LoginUserComponent,
     ComplaintComponent,
@@ -53,8 +73,6 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     PostpaidUserComponent,
     DongleUserComponent,
     PageNotFoundComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -84,4 +102,7 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  
+}
