@@ -1,0 +1,35 @@
+<div class="center-content">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>VoizFonica Customer Service</mat-card-title>
+            <mat-card-subtitle>Raise Complaint</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form" autocomplete="off">
+                <mat-form-field class="example-form" appearance="outline">
+                    <mat-label>Select Product</mat-label>
+                    <mat-select >
+                        <mat-option value="Prepaid">Prepaid</mat-option>
+                        <mat-option value="Postpaid">Postpaid</mat-option>
+                        <mat-option value="Dongle">Dongle</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Phone number</mat-label>
+                    <input type="text" matInput placeholder="Phone number" value="" required name="phone">
+                  <!--  <mat-error *ngIf="control.phone.errors">
+                      <div *ngIf="control.phone.errors.required">phone number is required!</div>
+                      <div *ngIf="control.phone.errors.pattern">invalid phone number!</div>
+                      <div *ngIf="control.phone.errors.minlength && !control.phone.errors.pattern">minimum 10 number is required!</div>
+                    </mat-error>-->
+                    <mat-icon matSuffix>phone</mat-icon>
+                  </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Complaint</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+                <button type="submit" mat-button color="primary">Register</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
