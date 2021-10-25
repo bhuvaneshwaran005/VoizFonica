@@ -24,4 +24,7 @@ export class RegistrationService {
   public resetPassword(customer:Customer):Observable<any>{
     return this.http.post('http://localhost:8080/forgotpassword',customer)
   }
+ 
 }
+
+

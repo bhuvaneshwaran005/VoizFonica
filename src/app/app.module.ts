@@ -44,6 +44,8 @@ import { DongleUserComponent } from './dongle-user/dongle-user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { PopularplanComponent } from './prepaid-user/popularplan/popularplan.component';
+
 
 
 
@@ -73,6 +75,8 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     PostpaidUserComponent,
     DongleUserComponent,
     PageNotFoundComponent,
+    PopularplanComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,29 +1,31 @@
-<mat-accordion class="example-accordion" multi>
-    <mat-expansion-panel  class="example-accordion-item">
-      <mat-expansion-panel-header class="example-accordion-item-header">
-        <mat-panel-title>
-          2GB/Day
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="example-accordion-item-body">
-
-            <li>Unlimited calls (Local + STD + Roaming)</li>
-         <li>40 GB monthly data with rollover up to 200 GB (beyond consumption of allocated data quota, value based charging will be applicable @ 2p/MB).</li>
-         <li>100 SMS/day (Local + STD + Roaming) thereafter 10p/SMS</li>
-         <li>Customer can add more family connections to their plan chargeable at @ Rs 299 for regular– Unlimited calls + 30GB data + 100SMS / days (thereafter 10p/SMS)</li>
-
-      </div>
-    </mat-expansion-panel>
-
-    <mat-expansion-panel  class="example-accordion-item">
-        <mat-expansion-panel-header class="example-accordion-item-header">
-          <mat-panel-title>
-            3GB/Day
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div class="example-accordion-item-body">
-          <p>I'm visible because I am open</p>
-        </div>
-      </mat-expansion-panel>
-  </mat-accordion>
-  
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [fixedInViewport]="true"
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="(isHandset$ | async) === false" >
+  <mat-toolbar></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="onClick('monthly')" >Monthly Plans</a>
+        <a mat-list-item (click)="onClick('quaterly')" >Quaterly Plans</a>
+        <a mat-list-item (click)="onClick('annual')" >Annual Plans</a>
+        <a mat-list-item (click)="onClick('wfh')" >Work From Home Plans</a>
+        <a mat-list-item (click)="onClick('base')" >Base Plans</a> 
+        <a mat-list-item (click)="onClick('international')">International Roaming Plans</a> 
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Prepaid Plans</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <app-popularplan [showplans]="plantype" ></app-popularplan>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,14 +1,17 @@
-.mat-accordion{
-    display: grid;
-    margin: auto;
-    width: 50%;
-    margin-top: 2rem;
-    border-radius: 20px;
+.sidenav-container {
+  height: 100%;
 }
-mat-expansion-panel,
-mat-expansion-panel-header {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 5px;
-  margin-bottom: 5px;
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }

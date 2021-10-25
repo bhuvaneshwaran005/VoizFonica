@@ -10,6 +10,7 @@ import { AdminPrepaidComponent } from './admin-prepaid/admin-prepaid.component';
 import { AdminProductComponent } from './admin-product/admin-product.component';
 
 import { ComplaintComponent } from './complaint/complaint.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { DongleUserComponent } from './dongle-user/dongle-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 //import { AuthGuard } from './guards/auth.guard';
@@ -17,6 +18,7 @@ import { LoginUserComponent } from './login-user/login-user.component';
 import { NewplanComponent } from './newplan/newplan.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostpaidUserComponent } from './postpaid-user/postpaid-user.component';
+import { PopularplanComponent } from './prepaid-user/popularplan/popularplan.component';
 import { PrepaidUserComponent } from './prepaid-user/prepaid-user.component';
 import { RegisterComponent } from './register/register.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
@@ -27,11 +29,15 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'login', component:LoginUserComponent},
   {path: 'forgotpassword', component:ForgotPasswordComponent},
-  {path:'userdashboard',component:UserNavComponent},
+  {path:'userdashboard',component:UserNavComponent, children:[
+    {path:'newplan',component:NewplanComponent},
+    {path:'userprofile',component:UserProfileComponent},
+    {path:'dashboard',component:DashboardUserComponent},
+  ]},
   {path: 'complaint', component:ComplaintComponent},
-  {path:'userprofile',component:UserProfileComponent},
-  {path:'newplan',component:NewplanComponent},
-  {path:'prepaiduser',component:PrepaidUserComponent},
+  {path:'prepaiduser',component:PrepaidUserComponent, children:[
+    {path: 'popularplan', component:PopularplanComponent},
+  ]},
   {path:'postpaiduser',component:PostpaidUserComponent},
   {path:'dongleuser',component:DongleUserComponent},
   {path: 'adminlogin',component: AdminLoginComponent},
