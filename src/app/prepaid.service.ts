@@ -17,7 +17,7 @@ export class PrepaidService {
   public findAll():Observable<Prepaid[]>{
     return this.http.get<Prepaid[]>(this.url);
   }
-  public buyprepaidPlan(customer:Customer,prepaid:Prepaid):Observable<any>{
-    return this.http.put(`http://localhost:8080/${customer.id}/customerplan/${prepaid.id}`,{})
+  public buyprepaidPlan(customer:Customer,prepaidId:number):Observable<any>{
+    return this.http.put(`http://localhost:8080/${customer.id}/customerplan/${prepaidId}`,{})
   }
 }

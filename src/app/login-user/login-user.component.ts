@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Customer } from '../customer';
+import { LoginserviceService } from '../loginservice.service';
 import { RegistrationService } from '../registration.service';
 
 @Component({
@@ -15,9 +17,11 @@ export class LoginUserComponent implements OnInit {
   hide = true;
   userlogin: FormGroup;
   customer = new Customer();
+  userid!: Customer[];
   constructor(private service:RegistrationService, 
     private router:Router,
-    private formBuilder:FormBuilder) { 
+    private formBuilder:FormBuilder,
+    private loginservice:LoginserviceService) { 
 
       this.userlogin = this.formBuilder.group({
         email: new FormControl(null, [Validators.required, Validators.email,
@@ -33,13 +37,20 @@ export class LoginUserComponent implements OnInit {
   }
 
   onSubmit(){
-    
+    if (this.userlogin.invalid) {
+      console.log("form not submitted");
+      return;
+    }
+    else {
+      this.login()
+    }
   }
   login() {
     this.service.loginUser(this.customer).subscribe(
       data => {
-        console.log("successfull")
-        //this.service.authenticate(true);
+        this.matchEmail()
+        //this.loginservice.setScope(this.userid);
+        console.log("successfull",this.userid);
         this.router.navigate(['/userdashboard'])
     },
       error => {
@@ -47,5 +58,9 @@ export class LoginUserComponent implements OnInit {
         this.msg = "Invalid username/password"
       }
     )
+  }
+  matchEmail(){
+    this.service.getdetails().subscribe(data => {this.userid = data});
+    console.log("get",this.userid)
   }
 }

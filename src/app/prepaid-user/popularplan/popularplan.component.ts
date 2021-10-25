@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Customer } from 'src/app/customer';
+import { LoginserviceService } from 'src/app/loginservice.service';
 import { Prepaid } from 'src/app/prepaid';
 import { PrepaidService } from 'src/app/prepaid.service';
-import { RegistrationService } from 'src/app/registration.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-popularplan',
@@ -13,21 +14,21 @@ import { RegistrationService } from 'src/app/registration.service';
 export class PopularplanComponent implements OnInit {
   @Input() showplans!: string;
   prepaid! : Prepaid[];
-
-  customer = new Customer();
+  public customer : Customer
   prepaidplan = new Prepaid();
   panelOpenState = false;
-  constructor(private service:PrepaidService,private router:Router) { 
-    this.customer.id=1;
-    this.prepaidplan.id = 6;
+  constructor(private service:PrepaidService,
+    private router:Router, private dataservice:DataService) { 
+      this.customer = dataservice.getScope();
   }
 
   ngOnInit(): void {
+    
     this.service.findAll().subscribe(data =>{this.prepaid = data})
   }
 
-  buyPlan(){
-    this.service.buyprepaidPlan(this.customer,this.prepaidplan).subscribe(
+  buyPlan(current_planId:number){
+    this.service.buyprepaidPlan(this.customer,current_planId).subscribe(
       data => {
         console.log("successfull")
         //this.router.navigate(['/userdashboard'])
