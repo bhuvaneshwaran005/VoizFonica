@@ -8,10 +8,12 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
 import { AdminPostpaidComponent } from './admin-postpaid/admin-postpaid.component';
 import { AdminPrepaidComponent } from './admin-prepaid/admin-prepaid.component';
 import { AdminProductComponent } from './admin-product/admin-product.component';
+import { BillingComponent } from './billing/billing.component';
 
 import { ComplaintComponent } from './complaint/complaint.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { DongleUserComponent } from './dongle-user/dongle-user.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 //import { AuthGuard } from './guards/auth.guard';
 import { LoginUserComponent } from './login-user/login-user.component';
@@ -29,23 +31,22 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'login', component:LoginUserComponent},
   {path: 'forgotpassword', component:ForgotPasswordComponent},
-  {path:'userdashboard',component:UserNavComponent, children:[
-    {path:'newplan',component:NewplanComponent},
+  {path:'userdashboard', component:UserNavComponent, children:[
     {path:'userprofile',component:UserProfileComponent},
-    {path:'dashboard',component:DashboardUserComponent},
-  ]},
-  {path: 'complaint', component:ComplaintComponent},
-  {path:'prepaiduser',component:PrepaidUserComponent, children:[
-    {path: 'popularplan', component:PopularplanComponent},
-  ]},
+    {path:'newplan', component:NewplanComponent},
+    {path: 'support', component:ComplaintComponent},
+    {path:'feedback', component:FeedbackComponent},
+    {path:'billing',component:BillingComponent},
+    {path:'', redirectTo:'/userdashboard/userprofile',pathMatch:'full'},
+    { path: '**', component: PageNotFoundComponent },
+    ]},
+  {path:'prepaiduser', component:PrepaidUserComponent},
   {path:'postpaiduser',component:PostpaidUserComponent},
   {path:'dongleuser',component:DongleUserComponent},
+ 
   {path: 'adminlogin',component: AdminLoginComponent},
   {path: 'admindashboard',component: AdminNavigationComponent},
-  {
-    path: 'adminproduct',
-    component: AdminProductComponent
-  },
+  {path: 'adminproduct',component: AdminProductComponent},
   {
     path: 'adminprepaid',
     component: AdminPrepaidComponent

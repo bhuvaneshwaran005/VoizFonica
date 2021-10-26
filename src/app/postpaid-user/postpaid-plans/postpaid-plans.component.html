@@ -1,7 +1,7 @@
 <mat-accordion class="example-accordion" multi>
-    <div *ngFor="let plans of dongle; first as isFirst">
-      <div >
-        <mat-expansion-panel class="example-accordion-item" [expanded]="isFirst">
+    <div *ngFor="let plans of postpaid; first as isFirst">
+      <div *ngIf="plans.category == showplans">
+        <mat-expansion-panel class="example-accordion-item">
           <mat-expansion-panel-header class="example-accordion-item-header">
             <mat-panel-title class="bold">{{plans.plan}}</mat-panel-title>
           </mat-expansion-panel-header>
@@ -11,12 +11,16 @@
                 <tr>
                   <th scope="col">Cost</th>
                   <th scope="col">Validity</th>
+                  <th scope="col">SMS</th>
+                  <th scope="col">Voice</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>{{ plans.cost }} ₹</td>
                   <td>{{ plans.validity}}</td>
+                  <td>{{ plans.sms }}</td>
+                  <td>{{ plans.voice }}</td>
                 </tr>
               </tbody>
             </table>

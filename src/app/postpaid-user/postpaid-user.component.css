@@ -1,8 +1,17 @@
-h1{
-    background-attachment: fixed;
-    font-weight:bolder;
-    text-align: center;  
-}
-h2{
-    background-attachment: fixed;
-}
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }

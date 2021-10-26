@@ -1,1 +1,23 @@
-<p>admin-customers works!</p>
+
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of customer">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email}}</td>
+            <td>{{user.phoneNumber}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

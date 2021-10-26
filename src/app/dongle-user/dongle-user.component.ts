@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Dongle } from '../dongle';
+import { DongleService } from '../dongle.service';
 
 @Component({
   selector: 'app-dongle-user',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DongleUserComponent implements OnInit {
 
-  constructor() { }
+  dongle! : Dongle[];
+
+  panelOpenState = false;
+  constructor(private service:DongleService) { 
+  }
 
   ngOnInit(): void {
+    this.service.findAllDonglePlans().subscribe(data =>{this.dongle = data})
+    console.log("succes",this.dongle)
   }
 
 }

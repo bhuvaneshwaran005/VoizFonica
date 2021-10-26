@@ -45,6 +45,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {MatExpansionModule} from '@angular/material/expansion';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { PopularplanComponent } from './prepaid-user/popularplan/popularplan.component';
+import { PostpaidPlansComponent } from './postpaid-user/postpaid-plans/postpaid-plans.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { BillingComponent } from './billing/billing.component';
 
 
 
@@ -76,6 +79,9 @@ import { PopularplanComponent } from './prepaid-user/popularplan/popularplan.com
     DongleUserComponent,
     PageNotFoundComponent,
     PopularplanComponent,
+    PostpaidPlansComponent,
+    FeedbackComponent,
+    BillingComponent,
 
   ],
   imports: [
