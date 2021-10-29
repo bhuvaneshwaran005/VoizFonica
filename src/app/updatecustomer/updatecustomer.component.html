@@ -1,0 +1,47 @@
+<div class="center-content">
+    <mat-card class="example-card">
+     
+          <mat-card-title>VoizFonica</mat-card-title>
+        <mat-card-subtitle>Update Customer Details</mat-card-subtitle>
+        
+      <mat-card-content>
+        <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="updateform" autocomplete="off">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="Name" value="" name="name"
+            required formControlName="name"  [(ngModel)]="customer.name" >
+            <mat-error *ngIf="control.name.errors">
+              <div *ngIf="control.name.errors.required">name is required</div>
+              <div *ngIf="control.name.errors.pattern">invalid name</div>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Email" required name="email"
+             formControlName="email" [(ngModel)]="customer.email" >
+            <mat-error *ngIf="control.email.errors">
+              <div *ngIf="control.email.errors.required">email is required!</div>
+              <div *ngIf="control.email.errors.pattern">invalid email!</div>
+            </mat-error>
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+            <mat-label>Phone number</mat-label>
+            <input type="text" matInput placeholder="Phone number" value="" required name="phone"
+            formControlName="phone" [(ngModel)]="customer.phoneNumber">
+            <mat-error *ngIf="control.phone.errors">
+              <div *ngIf="control.phone.errors.required">phone number is required!</div>
+              <div *ngIf="control.phone.errors.pattern">invalid phone number!</div>
+              <div *ngIf="control.phone.errors.minlength && !control.phone.errors.pattern">minimum 10 number is required!</div>
+            </mat-error>
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+          <button type="submit" mat-button color="primary">Update</button>
+          <mat-label id="error_msg"><small>{{msg}}</small></mat-label>
+  
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -16,9 +16,7 @@ export class AdminDashboardComponent  {
         return [
           { title: 'Total Customers Count', cols: 1, rows: 1 },
           { title: 'Active Customers Count', cols: 1, rows: 1 },
-          { title: 'Pending Request', cols: 1, rows: 1 },
-          { title: 'Edit Customers and their Details', cols: 1, rows: 1 },
-          { title: 'Track and manage problems', cols: 1, rows: 1 }
+          { title: 'Pending Request', cols: 1, rows: 1 }
         ];
       }
 
@@ -26,8 +24,6 @@ export class AdminDashboardComponent  {
         { title: 'Total Customers Count', cols: 1, rows: 1 },
         { title: 'Active Customers Count', cols: 1, rows: 1 },
         { title: 'Pending Request', cols: 1, rows: 1 },
-        { title: 'Edit Customer Details', cols: 1, rows: 1 },
-        { title: 'Track and manage problems', cols: 1, rows: 1 }
       ];
     })
   );

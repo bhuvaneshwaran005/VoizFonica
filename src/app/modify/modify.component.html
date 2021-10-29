@@ -1,0 +1,52 @@
+<div class="center-content">
+    <mat-card class="example-card">
+
+        <mat-card-title>VoizFonica</mat-card-title>
+        <mat-card-subtitle>Update Plan</mat-card-subtitle>
+
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="modifyform" autocomplete="off">
+                <mat-form-field class="example-form" appearance="outline">
+                    <mat-label>Select Category</mat-label>
+                    <mat-select formControlName="category" [(ngModel)]="prepaid.category">
+                        <mat-option value="monthly">Monthly</mat-option>
+                        <mat-option value="quaterly">Quaterly</mat-option>
+                        <mat-option value="annual">Annual</mat-option>
+                        <mat-option value="wfh">Work From Home</mat-option>
+                        <mat-option value="international">International</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Cost</mat-label>
+                    <input type="text" matInput placeholder="Cost" name="cost" formControlName="cost"
+                        [(ngModel)]="prepaid.cost">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Validity</mat-label>
+                    <input type="text" matInput placeholder="Validity" name="validity" formControlName="validity"
+                        [(ngModel)]="prepaid.validity">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Data</mat-label>
+                    <input type="text" matInput placeholder="Data" name="data" formControlName="data"
+                        [(ngModel)]="prepaid.plan">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>SMS</mat-label>
+                    <input type="text" matInput placeholder="SMS" name="sms" formControlName="sms"
+                        [(ngModel)]="prepaid.sms">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Voice</mat-label>
+                    <input type="text" matInput placeholder="Voice" name="voice" formControlName="voice"
+                        [(ngModel)]="prepaid.voice">
+                </mat-form-field>
+                <mat-error>{{msg}}</mat-error>
+                <div class="buttongroup">
+                    <button type="submit" mat-button>Update</button>
+                    <button type="button" (click)="deletePlan()" class="delete" mat-button>Delete</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

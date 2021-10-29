@@ -1,0 +1,43 @@
+.example-card {
+    max-width: 320px;
+    margin-top: 60px;
+  }
+  
+  .example-header-image {
+    
+    background-size: cover;
+  }
+  .center-content {
+      text-align: -webkit-center;
+      overflow: hidden; 
+  }
+ 
+  .example-full-width {
+      margin-top: 10px;
+    width: 100%;
+  }
+  .mat-button{
+      margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #3F51B5;
+  }
+  .amount{
+      display: flex;
+      justify-content: space-between;
+      width: 45%;
+      padding: 5%;
+      font-weight: bold;
+  }
+  mat-radio-group{
+      padding: 5%;
+      display: grid;
+      margin: auto;
+      width: 50%;
+      align-content: space-between
+      
+  }
+  mat-radio-button{
+      padding: 5%;
+  }

@@ -1,8 +1,9 @@
-<div class="center-content">
-    <mat-card class="example-card">
+<div class="container-fluid ">
+
+    <mat-card class=" example-card">
         <mat-card-header>
             <mat-card-title>VoizFonica Customer Service</mat-card-title>
-            <mat-card-subtitle>Raise Complaint</mat-card-subtitle>
+            <mat-card-subtitle><h6>Raise Complaint</h6></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="supportform" autocomplete="off">
@@ -30,7 +31,7 @@
                     <textarea matInput formControlName="message" [(ngModel)]="complaint.message">
                     </textarea>
                 </mat-form-field>
-                <button type="submit" mat-button color="primary">Register</button>
+                <button type="submit" class="btn btn-outline-primary">Register</button>
             </form>
         </mat-card-content>
     </mat-card>

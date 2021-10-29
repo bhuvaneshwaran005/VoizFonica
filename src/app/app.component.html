@@ -1,2 +1,51 @@
-<router-outlet></router-outlet>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand">
+      <img src="../../assets/logo.jfif" width="30" height="30">Voizfonica
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item text-dark text-dark pr-3">
+          <a class="nav-link" routerLink="aboutus">About<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item text-dark text-dark pr-3">
+          <a class="nav-link" routerLink="support">support<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item text-dark text-dark pr-3">
+          <a class="nav-link" routerLink="feedback">Feedback<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item text-dark text-dark pr-3">
+          <a class="nav-link" routerLink="/dongleuser">Dongle<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item text-dark text-dark pr-3">
+          <a class="nav-link" routerLink="prepaiduser">Prepaid<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item text-dark pr-3">
+          <a class="nav-link" routerLink="postpaiduser">Postpaid</a>
+        </li>
+        <li class="nav-item text-dark pr-3">
+          <a class="nav-link" *ngIf="!_authservice.isAdminAuthenticated" href="adminlogin">Admin</a>
+        </li>
+        <li class="nav-item text-dark pr-3">
+          <a class="nav-link"  *ngIf="!_authservice.isCustomerAuthenticated" href="login">Login</a>
+        </li>
+        <li class="nav-item text-dark pr-3">
+          <a class="nav-link" 
+           *ngIf="_authservice.isCustomerAuthenticated || _authservice.isAdminAuthenticated" (click)="showprofile()">Profile</a>
+        </li>
+        <li class="nav-item text-dark pr-3">
+          <a class="nav-link" 
+           *ngIf="_authservice.isCustomerAuthenticated || _authservice.isAdminAuthenticated" (click)="_authservice.logoutUser()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
+  <router-outlet></router-outlet>
+
+</div>

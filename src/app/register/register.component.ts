@@ -2,7 +2,10 @@ import { PlatformLocation } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomerService } from '../admin-customers/customer.service';
+import { AuthenticateService } from '../authenticate.service';
 import { Customer } from '../customer';
+import { DataService } from '../data.service';
 import { RegistrationService } from '../registration.service';
 
 
@@ -19,10 +22,10 @@ export class RegisterComponent implements OnInit {
   userValidation: FormGroup;
   msg = "";
   constructor(private formBuilder: FormBuilder,
-    private service: RegistrationService,
-    private router: Router, private platformLocation: PlatformLocation,) {
+    private service: RegistrationService,private customerservice:CustomerService, 
+    private authservice:AuthenticateService,
+    private router: Router,private dataservice:DataService) {
 
-      this.backbutton();
      
     this.userValidation = this.formBuilder.group({
       name: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z\s]+$/)]),
@@ -62,13 +65,15 @@ export class RegisterComponent implements OnInit {
     }
     else {
       this.register()
+      this.customerservice.setdata(this.customer);
+      this.dataservice.setData(this.customer);
     }
   }
   register() {
     this.service.registerUser(this.customer).subscribe(
       data => {
         console.log("successfull")
-       // this.service.authenticate(true);
+       this.authservice.authenticate();
         this.router.navigate(['/userdashboard'])
       },
       error => {
@@ -79,10 +84,4 @@ export class RegisterComponent implements OnInit {
     )
   }
 
-  backbutton(){
-    this.platformLocation.onPopState(() => {
-      console.log("onPopState called");
-      window.alert("your data will be lost");
-    })
-  }
 }

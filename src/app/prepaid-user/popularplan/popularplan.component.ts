@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { Router } from '@angular/router';
+import { Admin } from 'src/app/admin';
 import { Customer } from 'src/app/customer';
+import { DataService } from 'src/app/data.service';
 import { Prepaid } from 'src/app/prepaid';
 import { PrepaidService } from 'src/app/prepaid.service';
-import { RegistrationService } from 'src/app/registration.service';
 
 @Component({
   selector: 'app-popularplan',
@@ -13,29 +15,36 @@ import { RegistrationService } from 'src/app/registration.service';
 export class PopularplanComponent implements OnInit {
   @Input() showplans!: string;
   prepaid! : Prepaid[];
-
-  customer = new Customer();
-  prepaidplan = new Prepaid();
+  user!:Customer[];
+  admin!:Admin;
   panelOpenState = false;
-  constructor(private service:PrepaidService,private router:Router) { 
-    this.customer.id=1;
-    this.prepaidplan.id = 6;
+  buttonName = "Buy";
+  constructor(private service:PrepaidService,
+    private dataservice:DataService, private router:Router) { 
+   
   }
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(data =>{this.prepaid = data})
+    this.service.findAll().subscribe(data =>{this.prepaid = data});
+    this.dataservice.admin.subscribe(data => {this.admin = data});
+    if(this.admin.email != null){
+      this.buttonName = "Modify";
+    }
   }
 
-  buyPlan(){
-    this.service.buyprepaidPlan(this.customer,this.prepaidplan).subscribe(
-      data => {
-        console.log("successfull")
-        //this.router.navigate(['/userdashboard'])
-      },
-      error => {
-        console.log("exception")
-      }
-    )
+  buyPlan(prepaid:Prepaid){
+    this.dataservice.setPlan(prepaid);
+    if(this.buttonName == 'Buy'){
+      this.router.navigate(['userdashboard/newplan/prepaiduser/payment']);
+    }
+    else{
+      this.router.navigate(['/admindashboard/modify']);
+    }
+    
+  }
+
+  addprepaid(){
+    this.router.navigate(['/admindashboard/addplan']);
   }
 
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Admin } from '../admin';
+import { Customer } from '../customer';
+import { DataService } from '../data.service';
 import { Dongle } from '../dongle';
 import { DongleService } from '../dongle.service';
 
@@ -10,14 +14,33 @@ import { DongleService } from '../dongle.service';
 export class DongleUserComponent implements OnInit {
 
   dongle! : Dongle[];
-
+  user!:Customer[];
+  admin!:Admin;
+  buttonName = "Buy";
   panelOpenState = false;
-  constructor(private service:DongleService) { 
+  constructor(private service:DongleService,private dataservice:DataService,
+     private router:Router) { 
+      this.dataservice.admin.subscribe(data => {this.admin = data});
+      if(this.admin.email != null){
+        this.buttonName = "Modify";
+      }
   }
 
   ngOnInit(): void {
-    this.service.findAllDonglePlans().subscribe(data =>{this.dongle = data})
-    console.log("succes",this.dongle)
+    this.service.findAllDonglePlans().subscribe(data =>{this.dongle = data;
+      console.log("succes",this.dongle)})
+    
   }
-
+  buyPlan(dongleobj:Dongle){
+    this.dataservice.setDonglePlan(dongleobj);
+    if(this.buttonName == 'Buy'){
+      this.router.navigate(['userdashboard/newplan/dongleuser/donglepayment']);
+    }
+    else{
+      this.router.navigate(['/admindashboard/modifydongle']);
+    }
+  }
+  addDongle(){
+    this.router.navigate(['/admindashboard/adddongle'])
+  }
 }

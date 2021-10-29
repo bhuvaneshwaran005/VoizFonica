@@ -15,6 +15,8 @@ export class UserNavComponent implements OnInit {
     map(result => result.matches),
     shareReplay()
   );
+  status: boolean = false;
+  
 
 constructor(private breakpointObserver: BreakpointObserver) {}
 

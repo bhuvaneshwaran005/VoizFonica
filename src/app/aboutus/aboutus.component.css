@@ -1,0 +1,38 @@
+.row{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-around;  
+}
+.card{
+  margin: 10px;
+  height: 200px;
+  border-radius: 20px;
+}
+img{
+  width: 230px;
+  height: 175px;
+  border-radius: 10px;
+}
+ul > li{
+  list-style: none;
+}
+li > a{
+  text-decoration: none;
+}
+a{
+  color:lightslategrey;
+}
+a:hover{
+  color: #000;
+}
+ul{
+  padding-left: 1px;
+}
+.card-header{
+  background-color:cornsilk;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+h5{
+  margin-top: 3px;
+}

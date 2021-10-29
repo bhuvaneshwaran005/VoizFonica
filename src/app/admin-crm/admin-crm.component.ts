@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../admin-customers/customer.service';
+import { Complaint } from '../complaint';
+import { ComplaintService } from '../complaint/complaint.service';
 
 @Component({
   selector: 'app-admin-crm',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCRMComponent implements OnInit {
 
-  constructor() { }
+  complaint!:Complaint[];
+  constructor(private service:ComplaintService) { }
 
   ngOnInit(): void {
+    this.service.getComplaint().subscribe(
+      data=>{this.complaint=data;}
+    )
+  }
+
+  close(){
+
   }
 
 }

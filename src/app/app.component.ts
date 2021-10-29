@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { RegisterComponent } from './register/register.component';
+import { Router } from '@angular/router';
+import { AuthenticateService } from './authenticate.service';
 import { RegistrationService } from './registration.service';
 
 
@@ -15,12 +14,15 @@ export class AppComponent {
   title = 'demoApp';
 
 
-  constructor(public authenticationservice:RegistrationService, public dialog:MatDialog){}
-  openDialog(){
-    let dialogref = this.dialog.open(ConfirmationDialogComponent);
-    dialogref.afterClosed().subscribe(result =>{
-      console.log("Dialog result: ${result}");
-    })
+  constructor(public _authservice:AuthenticateService, private router:Router){}
+
+  showprofile(){
+    if(this._authservice.isAdminAuthenticated){
+      this.router.navigate(['adminprofile']);
+    }
+    if(this._authservice.isCustomerAuthenticated){
+      this.router.navigate(['userdashboard/userprofile'])
+    }
   }
  
 }

@@ -1,7 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, share, shareReplay } from 'rxjs/operators';
+import { Customer } from '../customer';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class PrepaidUserComponent implements OnInit {
 
   plantype ="monthly";
 
-  constructor(private breakpointObserver:BreakpointObserver) { }
+  constructor(private breakpointObserver:BreakpointObserver) {}
 
   ngOnInit(): void {
    

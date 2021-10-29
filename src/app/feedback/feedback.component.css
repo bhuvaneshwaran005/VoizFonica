@@ -38,7 +38,7 @@ input[type=submit] {
 }    
     
 input[type=submit]:hover {    
-  background-color: #20dc29;    
+  background-color:blueviolet    
 }    
     
 .container {    
@@ -57,7 +57,7 @@ input[type=submit]:hover {
     
 .col-75 {    
   float: left;    
-  width: 60%;    
+  width: 50%;    
   margin-top: 6px;    
 }    
     
@@ -69,5 +69,17 @@ input[type=submit]:hover {
 }
 .button{
     float: left;
-    width: 90%;
+    width: 81%;
+}
+.card-header{
+  text-align: center;
+  background-color: #ffff;
+  border: none;
+}
+.card-body{
+  background-color: rgb(168, 210, 247);
+  border-radius: 400px;
+}
+.card{
+  border: none;
 }

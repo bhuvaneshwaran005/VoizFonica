@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomerService } from '../admin-customers/customer.service';
+import { AuthenticateService } from '../authenticate.service';
 import { Customer } from '../customer';
+import { DataService } from '../data.service';
 import { RegistrationService } from '../registration.service';
 
 @Component({
@@ -17,7 +20,9 @@ export class LoginUserComponent implements OnInit {
   customer = new Customer();
   constructor(private service:RegistrationService, 
     private router:Router,
-    private formBuilder:FormBuilder) { 
+    private formBuilder:FormBuilder,private authservice:AuthenticateService,
+    private dataservice:DataService,
+    private customerservice:CustomerService) { 
 
       this.userlogin = this.formBuilder.group({
         email: new FormControl(null, [Validators.required, Validators.email,
@@ -30,16 +35,24 @@ export class LoginUserComponent implements OnInit {
   get control() { return this.userlogin.controls; }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(){
-    
+    if(this.userlogin.invalid){
+      return;
+    }
+    else{
+      this.login();
+      this.customerservice.setdata(this.customer);
+      this.dataservice.setData(this.customer);
+    }
   }
   login() {
     this.service.loginUser(this.customer).subscribe(
       data => {
         console.log("successfull")
-        //this.service.authenticate(true);
+        this.authservice.authenticate();
         this.router.navigate(['/userdashboard'])
     },
       error => {

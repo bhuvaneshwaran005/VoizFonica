@@ -8,12 +8,16 @@ import { Complaint } from '../complaint';
 })
 export class ComplaintService {
 
-  url:string
-  constructor(private http:HttpClient) { 
-    this.url="http://localhost:8080/registercomplaint";
+  constructor(private http:HttpClient) { }
+
+  makeComplaint(complaint:Complaint,name:string):Observable<any>{
+    return this.http.post(`http://localhost:8080/registercomplaint/${name}`,complaint);
   }
 
-  makeComplaint(complaint:Complaint):Observable<any>{
-    return this.http.post(this.url,complaint);
+  public getComplaint():Observable<any>{
+    return this.http.get("http://localhost:8080/get/all/complaints");
+  }
+  public deleteComplaint(complaint:Complaint):Observable<any>{
+    return this.http.post("http://localhost:8080/delete/complaints",complaint)
   }
 }

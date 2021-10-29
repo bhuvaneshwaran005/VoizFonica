@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticateService } from '../authenticate.service';
 
 @Component({
   selector: 'app-newplan',
@@ -8,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class NewplanComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private authservice:AuthenticateService) { }
 
   ngOnInit(): void {
   }
+
+ 
 
 }

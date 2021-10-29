@@ -1,13 +1,17 @@
 .example-card {
-    max-width: 320px;
+  margin-top: 10px;
+  max-width: 356px;
+  margin-left: 15%;
   }
   
-  .example-header-image {
-    background-size: cover;
-  }
-  .center-content {
-      margin-top: 60px;
-      text-align: -webkit-center;
+
+  .container-fluid {
+      height: 515px;
+      background-image: url(../../assets/866.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 200vh;
+      
   }
   .example-form {
     min-width: 150px;

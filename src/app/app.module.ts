@@ -5,10 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AdminProductComponent } from './admin-product/admin-product.component';
-import { AdminPrepaidComponent } from './admin-prepaid/admin-prepaid.component';
-import { AdminPostpaidComponent } from './admin-postpaid/admin-postpaid.component';
-import { AdminDongleComponent } from './admin-dongle/admin-dongle.component';
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { AdminCustomersComponent } from './admin-customers/admin-customers.component';
@@ -25,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { MatSelectModule} from '@angular/material/select';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
@@ -48,6 +43,24 @@ import { PopularplanComponent } from './prepaid-user/popularplan/popularplan.com
 import { PostpaidPlansComponent } from './postpaid-user/postpaid-plans/postpaid-plans.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { BillingComponent } from './billing/billing.component';
+import { PaymentComponent } from './payment/payment.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { CustomerPlansComponent } from './customer-plans/customer-plans.component';
+import { ModifyComponent } from './modify/modify.component';
+import { AddplanComponent } from './addplan/addplan.component';
+import { PostpaidPaymentComponent } from './postpaid-payment/postpaid-payment.component';
+import { DonglePaymentComponent } from './dongle-payment/dongle-payment.component';
+import { ModifyPostpaidComponent } from './modify-postpaid/modify-postpaid.component';
+import { ModifyDongleComponent } from './modify-dongle/modify-dongle.component';
+import { UpdatecustomerComponent } from './updatecustomer/updatecustomer.component';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+import { AddpostpaidComponent } from './addpostpaid/addpostpaid.component';
+import { AdddongleComponent } from './adddongle/adddongle.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { PortComponent } from './port/port.component';
+import { GetconnComponent } from './getconn/getconn.component';
 
 
 
@@ -57,10 +70,6 @@ import { BillingComponent } from './billing/billing.component';
     AppComponent,
     AdminLoginComponent,
     AdminDashboardComponent,
-    AdminProductComponent,
-    AdminPrepaidComponent,
-    AdminPostpaidComponent,
-    AdminDongleComponent,
     AdminLogoutComponent,
     AdminNavigationComponent,
     AdminCustomersComponent,
@@ -68,7 +77,6 @@ import { BillingComponent } from './billing/billing.component';
     RegisterComponent,
     LoginUserComponent,
     ComplaintComponent,
-    ConfirmationDialogComponent,
     ForgotPasswordComponent,
     DashboardUserComponent,
     UserProfileComponent,
@@ -82,6 +90,23 @@ import { BillingComponent } from './billing/billing.component';
     PostpaidPlansComponent,
     FeedbackComponent,
     BillingComponent,
+    PaymentComponent,
+    CustomerPlansComponent,
+    ModifyComponent,
+    AddplanComponent,
+    PostpaidPaymentComponent,
+    DonglePaymentComponent,
+    ModifyPostpaidComponent,
+    ModifyDongleComponent,
+    UpdatecustomerComponent,
+    AddcustomerComponent,
+    AddpostpaidComponent,
+    AdddongleComponent,
+    HomeComponent,
+    AboutusComponent,
+    PortComponent,
+    GetconnComponent,
+
 
   ],
   imports: [
@@ -107,7 +132,9 @@ import { BillingComponent } from './billing/billing.component';
     ReactiveFormsModule,
     MatDialogModule,
     MatExpansionModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    MatRadioModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
