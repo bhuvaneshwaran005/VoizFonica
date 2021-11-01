@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Admin } from 'src/app/admin';
+import { AuthenticateService } from 'src/app/authenticate.service';
 import { Customer } from 'src/app/customer';
 import { DataService } from 'src/app/data.service';
 import { Postpaid } from 'src/app/postpaid';
@@ -21,7 +22,7 @@ export class PostpaidPlansComponent implements OnInit {
   buttonName = "Buy";
   panelOpenState = false;
   constructor(private service:PostpaidService,
-    private router:Router,
+    private router:Router,private authservice:AuthenticateService,
     private dataservice:DataService) { 
   }
 
@@ -36,7 +37,11 @@ export class PostpaidPlansComponent implements OnInit {
   buyPlan(postpaid:Postpaid){
     this.dataservice.setPostPlan(postpaid);
     if(this.buttonName == 'Buy'){
-      this.router.navigate(['userdashboard/newplan/postpaiduser/postpaidpayment']);
+      if(this.authservice.isCustomerAuthenticated){
+        this.router.navigate(['userdashboard/newplan/postpaiduser/postpaidpayment']);
+      } else{
+        alert("Sign in required!");
+      }
     }
     else{
       this.router.navigate(['/admindashboard/modifypostpaid']);

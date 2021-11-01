@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { Router } from '@angular/router';
 import { Admin } from 'src/app/admin';
+import { AuthenticateService } from 'src/app/authenticate.service';
 import { Customer } from 'src/app/customer';
 import { DataService } from 'src/app/data.service';
 import { Prepaid } from 'src/app/prepaid';
@@ -20,7 +21,7 @@ export class PopularplanComponent implements OnInit {
   panelOpenState = false;
   buttonName = "Buy";
   constructor(private service:PrepaidService,
-    private dataservice:DataService, private router:Router) { 
+    private dataservice:DataService, private router:Router, private authservice:AuthenticateService) { 
    
   }
 
@@ -35,7 +36,11 @@ export class PopularplanComponent implements OnInit {
   buyPlan(prepaid:Prepaid){
     this.dataservice.setPlan(prepaid);
     if(this.buttonName == 'Buy'){
-      this.router.navigate(['userdashboard/newplan/prepaiduser/payment']);
+      if(this.authservice.isCustomerAuthenticated){
+        this.router.navigate(['userdashboard/newplan/prepaiduser/payment']);
+      }else{
+        alert("Sign in required!")
+      }
     }
     else{
       this.router.navigate(['/admindashboard/modify']);

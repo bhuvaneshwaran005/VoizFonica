@@ -51,6 +51,9 @@ export class AddpostpaidComponent implements OnInit {
       alert("Added Successfully");
       console.log("added!");
       this.location.back();
+    },
+    error=>{
+      alert("plan already exists");
     })
   }
 

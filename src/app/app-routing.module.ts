@@ -91,15 +91,18 @@ const routes: Routes = [
       { path: 'updatecustomer', component: UpdatecustomerComponent },
       { path: 'adminlogout', redirectTo: '/adminlogin', pathMatch: 'full' },
       { path: 'customerplans', component: CustomerPlansComponent },
+      { path: 'addcustomer', component: AddcustomerComponent },
+      { path: 'modify', component: ModifyComponent },
+      { path: 'modifypostpaid', component: ModifyPostpaidComponent },
+      { path: 'modifydongle', component: ModifyDongleComponent },
+      { path: 'addplan', component: AddplanComponent },
+      { path: 'addpostpaidplan', component: AddpostpaidComponent },
+      { path: 'adddongle', component: AdddongleComponent },
+
     ], canActivate: [AdminGuard]
   },
-  { path: 'modify', component: ModifyComponent },
-  { path: 'modifypostpaid', component: ModifyPostpaidComponent },
-  { path: 'modifydongle', component: ModifyDongleComponent },
-  { path: 'addplan', component: AddplanComponent },
-  { path: 'addpostpaidplan', component: AddpostpaidComponent },
-  { path: 'adddongle', component: AdddongleComponent },
-  { path: 'addcustomer', component: AddcustomerComponent },
+
+
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'aboutus', component: AboutusComponent },
   { path: '**', component: PageNotFoundComponent },

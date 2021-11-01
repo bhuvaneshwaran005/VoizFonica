@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
@@ -14,7 +15,7 @@ export class ModifyComponent implements OnInit {
   prepaid = new Prepaid();
   msg = "";
   modifyform: FormGroup
-  constructor(private dataservice: DataService, private formBuilder: FormBuilder,
+  constructor(private dataservice: DataService, private formBuilder: FormBuilder,private loaction:Location,
     private service: PrepaidService) {
     this.modifyform = this.formBuilder.group({
       category: new FormControl(''),
@@ -46,7 +47,7 @@ export class ModifyComponent implements OnInit {
   }
   deletePlan() {
       this.service.deleteprepaidPlan(this.prepaid).subscribe(
-        data => { alert("successfully Deleted");console.log("deleted post paid") },
+        data => { alert("successfully Deleted");console.log("deleted post paid");this.loaction.back() },
       error => { this.msg = "*this plan is currently using by active users" })
   }
 }

@@ -48,6 +48,9 @@ export class AddplanComponent implements OnInit {
       alert("plan added successfully!");
       console.log("added!");
       this.location.back();
+    },
+    error=>{
+      alert("plan already exists");
     })
   }
 }

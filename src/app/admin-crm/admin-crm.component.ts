@@ -10,6 +10,7 @@ import { ComplaintService } from '../complaint/complaint.service';
 })
 export class AdminCRMComponent implements OnInit {
 
+
   complaint!:Complaint[];
   constructor(private service:ComplaintService) { }
 
@@ -19,8 +20,10 @@ export class AdminCRMComponent implements OnInit {
     )
   }
 
-  close(){
-
+  close(user:Complaint){
+    this.service.deleteComplaint(user).subscribe(data =>{
+      user = data;
+    })
   }
 
 }

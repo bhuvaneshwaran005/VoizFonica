@@ -18,6 +18,6 @@ export class ComplaintService {
     return this.http.get("http://localhost:8080/get/all/complaints");
   }
   public deleteComplaint(complaint:Complaint):Observable<any>{
-    return this.http.post("http://localhost:8080/delete/complaints",complaint)
+    return this.http.post("http://localhost:8080/delete/complaint",complaint)
   }
 }

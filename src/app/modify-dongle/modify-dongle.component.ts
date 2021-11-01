@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
@@ -14,7 +15,7 @@ export class ModifyDongleComponent implements OnInit {
   dongle!: Dongle;
   msg="";
   modifydongleform:FormGroup;
-  constructor(private dataservice: DataService, private formBuilder: FormBuilder,
+  constructor(private dataservice: DataService, private formBuilder: FormBuilder,private location:Location,
     private dongleservice: DongleService) {
     this.modifydongleform = this.formBuilder.group({
       category: new FormControl(''),
@@ -46,7 +47,7 @@ export class ModifyDongleComponent implements OnInit {
   }
   deletePlan() {
       this.dongleservice.deletedonglePlan(this.dongle).subscribe(
-        data => { alert("successfully Deleted");console.log("deleted post paid") },
+        data => { alert("successfully Deleted");console.log("deleted post paid");this.location.back() },
       error => { this.msg = "*this plan is currently using by active users" })
     }
 }

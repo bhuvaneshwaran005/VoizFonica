@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Admin } from '../admin';
+import { AuthenticateService } from '../authenticate.service';
 import { Customer } from '../customer';
 import { DataService } from '../data.service';
 import { Dongle } from '../dongle';
@@ -19,7 +20,7 @@ export class DongleUserComponent implements OnInit {
   buttonName = "Buy";
   panelOpenState = false;
   constructor(private service:DongleService,private dataservice:DataService,
-     private router:Router) { 
+    private authservice:AuthenticateService,private router:Router) { 
       this.dataservice.admin.subscribe(data => {this.admin = data});
       if(this.admin.email != null){
         this.buttonName = "Modify";
@@ -34,7 +35,11 @@ export class DongleUserComponent implements OnInit {
   buyPlan(dongleobj:Dongle){
     this.dataservice.setDonglePlan(dongleobj);
     if(this.buttonName == 'Buy'){
-      this.router.navigate(['userdashboard/newplan/dongleuser/donglepayment']);
+      if(this.authservice.isCustomerAuthenticated){
+        this.router.navigate(['userdashboard/newplan/dongleuser/donglepayment']);
+      }else{
+        alert("Sign in required!")
+      }
     }
     else{
       this.router.navigate(['/admindashboard/modifydongle']);

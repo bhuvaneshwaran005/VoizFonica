@@ -38,7 +38,10 @@ export class AdminCustomersComponent implements OnInit {
     this.service.deleteCustomer(this.user).subscribe(
       data =>{console.log("deleted");
     alert("Successfully Deleted");
-    this.ngOnInit();}
+    this.ngOnInit();},
+    error =>{
+      alert("Can't Delete the active customer")
+    }
     )
   }
   addcustomer(){

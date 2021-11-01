@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
@@ -14,7 +15,7 @@ export class ModifyPostpaidComponent implements OnInit {
   msg = "";
   postpaid = new Postpaid();
   modifypostpaidform: FormGroup;
-  constructor(private dataservice: DataService, private formBuilder: FormBuilder,
+  constructor(private dataservice: DataService, private formBuilder: FormBuilder,private location:Location,
     private postpaidservice: PostpaidService,) {
     this.modifypostpaidform = this.formBuilder.group({
       category: new FormControl('', [Validators.required]),
@@ -49,7 +50,7 @@ export class ModifyPostpaidComponent implements OnInit {
 
   deletePlan() {
     this.postpaidservice.deletepostpaidPlan(this.postpaid).subscribe(
-      data => { alert("successfully Deleted");console.log("deleted post paid") },
+      data => { alert("successfully Deleted");console.log("deleted post paid");this.location.back() },
       error => { this.msg = "*this plan is currently using by active users" }
     )
   }
