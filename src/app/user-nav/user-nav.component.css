@@ -1,0 +1,39 @@
+/* ul > li{
+  list-style: none;
+}
+li:hover{
+  background-color: rgb(221, 221, 221);
+  opacity: 0.8;
+}
+.wid{
+  width: 20% !important ;
+}
+ul{
+  padding: 0 !important;
+}
+.nav-width{
+  margin: 0 !important;
+}
+a{
+  text-decoration: none;
+  color: rgb(32, 31, 31);
+} */
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  position: fixed;
+  top: 56px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}

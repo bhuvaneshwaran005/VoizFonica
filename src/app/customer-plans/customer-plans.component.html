@@ -1,0 +1,37 @@
+<div class="center">
+  <div class="container" style="text-align: center; margin-top: 50px;"><h1>{{msg}}</h1></div>
+    <table *ngIf="msg == '' " class="table table-hover">
+        <thead class="">
+          <tr>
+            <th scope="col">Plan Type</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Validity</th>
+            <th scope="col">SMS</th>
+            <th scope="col">Voice</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plans of prepaid">
+            <td>Prepaid</td>
+            <td>{{ plans.cost }} ₹</td>
+            <td>{{ plans.validity}}</td>
+            <td>{{ plans.sms }}</td>
+            <td>{{ plans.voice }}</td>
+          </tr>
+          <tr *ngFor="let postpaidplans of postpaid">
+            <td>Postpaid</td>
+            <td>{{ postpaidplans.cost }} ₹</td>
+            <td>{{ postpaidplans.validity}}</td>
+            <td>{{ postpaidplans.sms }}</td>
+            <td>{{ postpaidplans.voice }}</td>
+          </tr>
+          <tr *ngFor="let dongleplans of dongle">
+            <td>Dongle</td>
+            <td>{{ dongleplans.cost }} ₹</td>
+            <td>{{ dongleplans.validity}}</td>
+            <td>NA</td>
+            <td>NA</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

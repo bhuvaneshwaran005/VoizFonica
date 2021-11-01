@@ -1,0 +1,15 @@
+.row{
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-around;  
+}
+.card{
+    margin: 10px;
+    height: 300px;
+    border-radius: 20px;
+}
+img{
+    width: 230px;
+    height: 175px;
+    border-radius: 10px;
+}

@@ -1,0 +1,38 @@
+<div class="container-fluid ">
+
+    <mat-card class=" example-card">
+        <mat-card-header>
+            <mat-card-title>VoizFonica Customer Service</mat-card-title>
+            <mat-card-subtitle><h6>Raise Complaint</h6></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="supportform" autocomplete="off">
+                <mat-form-field class="example-form" appearance="outline">
+                    <mat-label>Select Product</mat-label>
+                    <mat-select formControlName="type" [(ngModel)]="complaint.planType">
+                        <mat-option value="Prepaid">Prepaid</mat-option>
+                        <mat-option value="Postpaid">Postpaid</mat-option>
+                        <mat-option value="Dongle">Dongle</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Phone number</mat-label>
+                    <input type="text" matInput placeholder="Phone number" formControlName="phone"
+                    [(ngModel)]="complaint.phone" required name="phone">
+                    <mat-error *ngIf="control.phone.errors">
+                      <div *ngIf="control.phone.errors.required">phone number is required!</div>
+                      <div *ngIf="control.phone.errors.pattern">invalid phone number!</div>
+                      <div *ngIf="control.phone.errors.minlength && !control.phone.errors.pattern">minimum 10 number is required!</div>
+                    </mat-error>
+                    <mat-icon matSuffix>phone</mat-icon>
+                  </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Complaint</mat-label>
+                    <textarea matInput formControlName="message" [(ngModel)]="complaint.message">
+                    </textarea>
+                </mat-form-field>
+                <button type="submit" class="btn btn-outline-primary">Register</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

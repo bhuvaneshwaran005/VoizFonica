@@ -1,0 +1,42 @@
+.example-card {
+    max-width: 356px;
+    margin-top: 68px;
+    margin-left: 15%;
+
+  }
+  .container-fluid {
+    height: 510px;
+    background-image: url(../../assets/866.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 200vh;
+      overflow: hidden;
+  }
+
+  
+  .example-full-width {
+      margin-top: 10px;
+    width: 100%;
+  }
+  .mat-button{
+      margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #3F51B5;
+  }
+  #error_msg{
+    display: flex;
+  justify-content: space-between;
+  color: red;
+  }
+  .switch{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+  }
+  #a:link {
+    text-decoration: none;
+  }
+  

@@ -1,0 +1,23 @@
+<div class="center-content">
+    <mat-card class="example-card">
+
+        <mat-card-title>VoizFonica</mat-card-title>
+        <mat-card-subtitle>Payment</mat-card-subtitle>
+
+        <mat-card-content>
+            <div class="amount">
+                <div>Amount</div>
+                <div>{{cost}}₹</div>
+            </div>
+            <mat-radio-group>
+                <mat-radio-button [checked]="true" value="upi">UPI</mat-radio-button>
+                <mat-radio-button value="creditcard">Credit Card</mat-radio-button>
+                <mat-radio-button value="debitcard">Debit Card</mat-radio-button>
+              </mat-radio-group>
+              <div>
+                <button mat-button (click)="makeDonglePayment()">Confirm</button>
+              </div>
+        </mat-card-content>
+
+    </mat-card>
+</div>

@@ -1,0 +1,73 @@
+<!-- <div class="wid d-flex">
+  <div class="d-flex flex-column nav-width">
+    <h3>Dashboard</h3>
+    <div>
+      <ul class=""  >
+        <li class="p-2 py-3">
+          <a routerLink="userprofile">Profile</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="newplan">Plans</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="newconnection">Products</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="activeplan">Active Plan Details</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="port">Port to VoizFonica</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="billing">Bills & Invoices</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="support">Supports & Services</a>
+        </li>
+        <li class="p-2 py-3">
+          <a routerLink="feedback">Feedback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+
+  <mat-sidenav-container class="sidenav-container" >
+    <mat-sidenav #drawer class="sidenav" 
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false" >
+      <mat-toolbar>Dashboard</mat-toolbar>
+      <mat-nav-list>
+        
+        <a mat-list-item routerLink="newplan">Plans</a>
+        <a mat-list-item routerLink="customerplans">Plan History</a>
+        <a mat-list-item routerLink="port">Port To VoizFonica</a>
+        <a mat-list-item routerLink="billing">Bills & Invoices</a>
+        <a mat-list-item routerLink="support">Supports & Services</a>
+        <a mat-list-item routerLink="feedback">Feedback</a>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+     
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+     
+      <!-- Add Content Here -->
+      <div class="side-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+

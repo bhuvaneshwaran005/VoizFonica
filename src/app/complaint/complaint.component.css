@@ -1,0 +1,41 @@
+.example-card {
+  max-width: 356px;
+  margin-top: 65px;
+  margin-left: 15%;
+
+}
+.container-fluid {
+      background-image: url(../../assets/pexels-yan-krukov-8867476.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 520px;
+      overflow:hidden;  
+      padding: 0px;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+      margin-top: 10px;
+    width: 100%;
+  }
+  .mat-button{
+      margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #3F51B5;
+  }
+  #error_msg{
+    display: flex;
+  justify-content: space-between;
+  color: red;
+  }
+  img{
+    margin: auto;
+    width: 320px;
+  }
+  

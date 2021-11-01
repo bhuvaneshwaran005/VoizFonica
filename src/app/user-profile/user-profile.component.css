@@ -1,0 +1,96 @@
+h1{
+    text-align: center;
+    top:auto;
+  }   
+* {    
+  box-sizing: border-box;
+      
+}    
+    
+input[type=text], select, textarea {    
+  width: 100%;    
+  padding: 12px;    
+  border: 1px solid rgb(70, 68, 68);    
+  border-radius: 4px;    
+  resize: vertical;    
+}    
+input[type=email], select, textarea {    
+  width: 100%;    
+  padding: 12px;    
+  border: 1px solid rgb(70, 68, 68);    
+  border-radius: 4px;    
+  resize: vertical;    
+}  
+
+input[type=phoneno] {    
+    width: 100%;    
+    padding: 12px;    
+    border: 1px solid rgb(70, 68, 68);    
+    border-radius: 4px;    
+    resize: vertical;    
+  }    
+    
+label {    
+  padding: 12px 12px 12px 0;    
+  display: inline-block;  
+  font-size: large;  
+  font-style:normal;
+  
+}    
+    
+input[type=forgotpassword] {    
+  background-color:darkblue;
+  color: white;    
+  padding: 12px 12px;    
+  border: none;    
+  border-radius: 2px;    
+  cursor: pointer;    
+  float:initial;
+  text-align: center;    
+}    
+    
+input[type=forgotpassword]:hover {    
+  background-color :deeppink   
+}    
+    
+.container {    
+  /*border-radius: 5px;    
+  background-color: #f2f2f2;    
+  padding: 15px;  
+  overflow: hidden;  
+
+  height: 92vh;*/
+  max-width: 600px;
+  margin:  2em auto;
+  text-align: center;
+  max-height: 600px;
+  background-color: ghostwhite;
+  margin-top: 60px;
+  
+
+
+}    
+    
+.col-25 {    
+  float: left;    
+  width: 20%;    
+  margin-top: 6px;
+  margin-left: 10%;    
+}    
+    
+.col-75 {    
+  float: left;    
+  width: 60%;    
+  margin-top: 6px;    
+}    
+    
+/* Clear floats after the columns */    
+.row:after {    
+  content: "";    
+  display: table;    
+  clear: both;    
+}
+.button{
+    float: right;
+    width: 90%;
+}

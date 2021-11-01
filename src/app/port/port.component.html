@@ -1,0 +1,42 @@
+<body>
+    <div class="content">
+        <h1>Port To VoizFonica </h1>
+    
+        <div class="steps">
+            <u>
+                <h2>Step 1 </h2>
+            </u>
+            <p>SMS "PORT 10 digit mobile number" to 1999 from your existing number which yo want to port.</p>
+    
+            <u>
+                <h2>Step 2 </h2>
+            </u>
+            <p>SMS "You will recieve a unique porting number along with its expiry date. keep that number for future
+                references.</p>
+            <div class="details">
+                <u>
+                    <h2>Step 3 </h2>
+                </u>
+                <p>Enter your Personal Details to Register.</p>
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Full Name" required name="username" ngModel #username="ngModel">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error *ngIf="username.invalid">
+                FullName is required
+            </mat-error>
+    
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Mobile Number" required name="contact" minlength="10" maxlength="10"
+                pattern="[0-9]*" ngModel #contact="ngModel">
+            <mat-error *ngIf="contact.invalid">Please enter valid 10 digit number</mat-error>
+            <mat-icon matSuffix>local_phone</mat-icon>
+        </mat-form-field>
+    
+        <button mat-raised-button  class="register-button">
+            Register
+        </button>
+    </div>
+    </body>

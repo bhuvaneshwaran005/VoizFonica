@@ -1,0 +1,31 @@
+
+<div class="my-5">
+  <div class="text-right mt-2">
+    <button class="btn btn-success w-25" (click)="addcustomer()">Add New Customer</button>
+  </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead class="">
+          <tr>  
+            <th scope="col" class="text-center">S.No.</th>
+            <th scope="col" class="text-center">Customer Name</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">phone</th>
+            <th scope="col" class="text-center">Plan Details</th>
+            <th scope="col" colspan="2" class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of customer; index as i">
+            <td class="text-center">{{ i+1 }}</td>
+            <td class="text-center">{{ user.name }}</td>
+            <td class="text-center">{{ user.email}}</td>
+            <td class="text-center">{{user.phoneNumber}}</td>
+            <td class="text-center"><button class="btn btn-info" color="accent" (click)="onView(user)">View</button></td>
+            <td class="text-center"><button class="btn btn-secondary" (click)="update(user)">Update</button></td>
+            <td class="text-center"><button class="btn btn-danger" (click)="delete(user)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

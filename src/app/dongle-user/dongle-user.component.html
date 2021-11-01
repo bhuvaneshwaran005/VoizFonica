@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="text-center"><h3>Dongle Plans</h3></div><div>
+    <mat-accordion class="example-accordion" multi>
+      <div class="text-right mt-2 mb-2" *ngIf="buttonName == 'Modify'"><button class="btn btn-success w-20" (click)="addDongle()">Add New Dongle Plan</button></div>
+      <div *ngFor="let plans of dongle; first as isFirst">
+        <div >
+          <mat-expansion-panel class="example-accordion-item" [expanded]="isFirst">
+            <mat-expansion-panel-header class="example-accordion-item-header">
+              <mat-panel-title class="bold">{{plans.plan}}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="example-accordion-item-body">
+              <table class="table table-hover">
+                <thead class="">
+                  <tr>
+                    <th scope="col" class="text-center">Cost</th>
+                    <th scope="col" class="text-center">Validity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">{{ plans.cost }} ₹</td>
+                    <td class="text-center">{{ plans.validity}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-right">
+                <button class="button" mat-stroked-button color="accent" (click)="buyPlan(plans)">{{buttonName}}</button>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+      </div>
+    </mat-accordion>
+  </div>
+</div>

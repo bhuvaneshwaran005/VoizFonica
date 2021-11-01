@@ -1,0 +1,39 @@
+<div>
+  <mat-accordion class="example-accordion" multi>
+    <div class="text-right mt-2 mb-2">  
+      <div *ngIf="buttonName == 'Modify'"><button class="btn btn-success w-20" (click)="addpostpaid()">Add New Postpaid Plan</button></div>
+  </div>
+    <div *ngFor="let plans of postpaid; first as isFirst">
+      <div *ngIf="plans.category == showplans">
+        <mat-expansion-panel class="example-accordion-item">
+          <mat-expansion-panel-header class="example-accordion-item-header">
+            <mat-panel-title class="bold">{{plans.plan}}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="example-accordion-item-body">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th scope="col" class="text-center">Cost</th>
+                  <th scope="col" class="text-center">Validity</th>
+                  <th scope="col" class="text-center">SMS</th>
+                  <th scope="col" class="text-center">Voice</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">{{ plans.cost }} ₹</td>
+                  <td class="text-center">{{ plans.validity}}</td>
+                  <td class="text-center">{{ plans.sms }}</td>
+                  <td class="text-center">{{ plans.voice }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-right">
+              <button class="button" mat-stroked-button color="accent" (click)="buyPlan(plans)">{{buttonName}}</button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-accordion>
+</div>
