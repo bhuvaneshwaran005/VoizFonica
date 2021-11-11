@@ -1,6 +1,9 @@
 {
   "name": "voiz-fonica",
-  "version": "14.17.6",
+  "version": "0.0.0",
+   "engines": {
+    "node": "14.17.6"
+  }
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
